@@ -1,0 +1,12 @@
+//Necessário para conseguir escrever no jest com typescript e novas funcionalidades do js
+{
+  "plugins":[
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr":true
+      }
+    ]
+  ],
+  "presets": ["next/babel", "@babel/preset-typescript"]
+}
