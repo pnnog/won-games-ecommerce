@@ -1,0 +1,15 @@
+import { Meta, Story } from '@storybook/react';
+import {{pascalCase name}} from '.';
+
+export default {
+  title: '{{pascalCase name}}',
+  component:{{pascalCase name}},
+  args: {
+    title: 'Título padrão para todos os stories caso nada seja passado',
+    description:
+      'Description padrão para todos os stories caso nada seja passado',
+  },
+} as Meta;
+
+export const Default: Story = (args) => <{{pascalCase name}} {...args} />;
+
