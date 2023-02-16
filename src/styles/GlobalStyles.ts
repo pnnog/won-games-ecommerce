@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
   src: url('/fonts/poppins-v20-latin-regular.woff2') format('woff2'),
 }
 
+
 @font-face {
   font-display: swap;
   font-family: 'Poppins';

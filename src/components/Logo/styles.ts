@@ -24,7 +24,7 @@ const wrapperModifiers = {
     }
 
     .text{
-       display: none
+      display: none
     }
 `}
   `,

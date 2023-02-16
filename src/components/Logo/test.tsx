@@ -37,7 +37,7 @@ describe('<Logo />', () => {
   });
 
   it('should render a bigger logo without text on mobile if hideOnMobile', () => {
-    renderWithTheme(<Logo />);
+    renderWithTheme(<Logo hideOnMobile />);
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyleRule(
       'width',
       '5.8rem',
