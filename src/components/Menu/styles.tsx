@@ -32,6 +32,7 @@ export const MenuGroup = styled.div`
     display: flex;
     flex-grow: 1;
     justify-content: end;
+    align-items: center;
 
     > div {
       margin-left: ${theme.spacings.xsmall};
@@ -39,36 +40,13 @@ export const MenuGroup = styled.div`
   `}
 `;
 
-type FullMenuProps = {
-  isOpen: boolean;
-};
-
-export const FullMenu = styled.nav<FullMenuProps>`
-  ${({ theme, isOpen }) => css`
-    background-color: ${theme.colors.white};
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    height: 100vh;
-    opacity: ${isOpen ? 1 : 0};
-    pointer-events: ${isOpen ? 'all' : 'none'};
-
-    > svg {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: ${theme.spacings.xsmall};
-      cursor: pointer;
-      width: 2.4rem;
-      height: 2.4rem;
-    }
+export const MenuNav = styled.div`
+  ${({ theme }) => css`
+    ${media.greaterThan('medium')`
+      margin-left: ${theme.spacings.small};
+    `}
   `}
 `;
-
-export const MenuNav = styled.div``;
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
@@ -77,6 +55,7 @@ export const MenuLink = styled.a`
     margin: 0.3rem ${theme.spacings.small} 0;
     text-decoration: none;
     text-align: center;
+    color: ${theme.colors.white};
 
     &:hover {
       &::after {
@@ -97,6 +76,84 @@ export const MenuLink = styled.a`
           left: 0;
         }
       }
+    }
+  `}
+`;
+
+export const RegisterBox = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 ${theme.spacings.xlarge} ${theme.spacings.xlarge};
+
+    > span {
+      display: block;
+      margin: ${theme.spacings.xxsmall} 0;
+      font-size: ${theme.font.sizes.xsmall};
+    }
+  `}
+`;
+
+export const CreateAccount = styled.a`
+  ${({ theme }) => css`
+    text-decoration: none;
+    color: ${theme.colors.primary};
+    border-bottom: 0.2rem solid ${theme.colors.primary};
+    cursor: pointer;
+  `}
+`;
+
+type FullMenuProps = {
+  isOpen: boolean;
+};
+
+export const FullMenu = styled.nav<FullMenuProps>`
+  ${({ theme, isOpen }) => css`
+    background-color: ${theme.colors.white};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    height: 100vh;
+    opacity: ${isOpen ? 1 : 0};
+    pointer-events: ${isOpen ? 'all' : 'none'};
+    transition: opacity 0.3s ease-in-out;
+    > svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: ${theme.spacings.xsmall};
+      cursor: pointer;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    ${MenuNav} {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    ${MenuLink} {
+      color: ${theme.colors.black};
+      font-weight: ${theme.font.bold};
+      font-size: ${theme.font.sizes.xlarge};
+      margin-bottom: ${theme.spacings.small};
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
+      transition: transform 0.3s ease-in-out;
+    }
+
+    ${RegisterBox} {
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
+      transition: transform 0.3s ease-in-out;
     }
   `}
 `;
