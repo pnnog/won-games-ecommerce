@@ -50,8 +50,8 @@ describe('<Menu />', () => {
   it('should render more links when is logged ', () => {
     //se estiver logado, os links adicionais devem estar visiveis
     renderWithTheme(<Menu username="ana" />);
-    expect(screen.getByText(/My Account/i)).toBeInTheDocument();
-    expect(screen.getByText(/Wishlist/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/My Account/i)[0]).toBeInTheDocument();
+    expect(screen.getAllByText(/Wishlist/i)[0]).toBeInTheDocument();
   });
 
   it('should hide register box when is logged out ', () => {
@@ -59,9 +59,4 @@ describe('<Menu />', () => {
     expect(screen.queryByText(/Log in now/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/Sign up/i)).not.toBeInTheDocument();
   });
-
-  // it('should be hide icon menu in desktop view', () => {
-  //   renderWithTheme(<Menu />);
-  //   expect(screen.queryByLabelText(/open menu/i)).not.toBeInTheDocument();
-  // });
 });
