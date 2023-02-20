@@ -30,6 +30,10 @@ exports[`<Button /> should render a icon version 1`] = `
   justify-content: center;
 }
 
+.c0:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
 .c0 svg {
   width: 1.5rem;
 }
@@ -79,6 +83,10 @@ exports[`<Button /> should render full width version 1`] = `
   width: 100%;
 }
 
+.c0:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
 <div>
    
   <button
@@ -104,6 +112,10 @@ exports[`<Button /> should render large button if size large 1`] = `
   height: 5rem;
   font-size: 1.6rem;
   padding: 0.8rem 4.8rem;
+}
+
+.c0:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
 <div>
@@ -132,6 +144,10 @@ exports[`<Button /> should render small button if size small 1`] = `
   font-size: 1.2rem;
 }
 
+.c0:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
+}
+
 <div>
    
   <button
@@ -157,6 +173,10 @@ exports[`<Button /> should render the medium size byDefault 1`] = `
   height: 4rem;
   font-size: 1.4rem;
   padding: 0.8rem 3.2rem;
+}
+
+.c0:hover {
+  background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
 
 <div>
