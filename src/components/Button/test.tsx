@@ -67,4 +67,32 @@ describe('<Button />', () => {
     expect(screen.getByText(/buy now test/i)).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
+
+  it('should render Button as a link', () => {
+    const { container, debug } = renderWithTheme(
+      <Button as="a" href="/link">
+        This button is an link element
+      </Button>
+    );
+    // debug(container);
+
+    const element = screen.getByRole('link', {
+      name: /This button is an link element/i,
+    });
+    expect(element).toHaveAttribute('href', '/link');
+  });
+
+  it('should render Button as a button when not is passed', () => {
+    const { container, debug } = renderWithTheme(
+      <Button>This button is an button element</Button>
+    );
+
+    // debug(container);
+
+    const element = screen.getByRole('button', {
+      name: /This button is an button element/i,
+    });
+
+    expect(element).toBeInTheDocument();
+  });
 });
