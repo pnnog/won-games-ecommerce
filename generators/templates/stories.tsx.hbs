@@ -9,6 +9,17 @@ export default {
     description:
       'Description padrão para todos os stories caso nada seja passado',
   },
+
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1',
+    }
+    
+    layout: {
+      default: 'fullscreen',
+    },
+  },
+  
 } as Meta;
 
 export const Default: Story = (args) => <{{pascalCase name}} {...args} />;

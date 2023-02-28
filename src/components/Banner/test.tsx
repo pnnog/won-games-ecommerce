@@ -34,4 +34,20 @@ describe('<Banner />', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  it('should render banner with ribbon', () => {
+    renderWithTheme(
+      <Banner
+        {...props}
+        ribbon="20% OFF"
+        ribbonSize="small"
+        ribbonColor="primary"
+      />
+    );
+
+    const element = screen.getByText(/20% OFF/i);
+    expect(element).toBeInTheDocument();
+    expect(element).toHaveStyleRule('height', '2.4rem');
+    expect(element).toHaveStyleRule('background', '#F231A5');
+  });
 });
