@@ -1,15 +1,15 @@
 import { Meta, Story } from '@storybook/react';
+
 import GameCard, { GameCardProps } from '.';
 
 export default {
   title: 'GameCard',
   component: GameCard,
   args: {
-    img: '/game/image',
+    img: 'https://source.unsplash.com/user/willianjusten/300x140',
     title: 'Título do jogo',
-    developer: 'Rockstar',
-    altPrice: '250',
-    price: '299',
+    developer: 'Rockstar Games',
+    price: 'R$ 299,00',
   },
 
   parameters: {
@@ -23,4 +23,8 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<GameCardProps> = (args) => <GameCard {...args} />;
+export const Default: Story<GameCardProps> = (args) => (
+  <div style={{ maxWidth: '102rem' }}>
+    <GameCard {...args} />
+  </div>
+);
