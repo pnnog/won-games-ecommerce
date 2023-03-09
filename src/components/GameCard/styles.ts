@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 
 export const Wrapper = styled.article`
   ${({ theme }) => css`
@@ -101,19 +101,34 @@ export const BuyBox = styled.div`
   `}
 `;
 
-export const Price = styled.div`
-  ${({ theme }) => css`
-    display: inline-flex;
-    font-weight: ${theme.font.bold};
-    height: 3rem;
-    align-items: center;
+type PriceProps = {
+  isPromotional?: boolean;
+};
 
+const priceModifiers = {
+  default: (theme: DefaultTheme) => css`
     color: ${theme.colors.white};
     padding: 0 ${theme.spacings.xsmall};
     background-color: ${theme.colors.secondary};
     border-radius: ${theme.border.radius};
     margin-right: calc(${theme.spacings.xxsmall} / 2);
+    text-decoration: none;
+  `,
+  promotional: (theme: DefaultTheme) => css`
+    color: ${theme.colors.gray};
+    margin-right: ${theme.spacings.xsmall};
+    text-decoration: line-through;
+  `,
+};
 
-    cursor: pointer;
+export const Price = styled.div<PriceProps>`
+  ${({ theme, isPromotional }) => css`
+    display: inline-flex;
+    font-weight: ${theme.font.bold};
+    height: 3rem;
+    align-items: center;
+
+    ${!isPromotional && priceModifiers.default(theme)};
+    ${!!isPromotional && priceModifiers.promotional(theme)};
   `}
 `;

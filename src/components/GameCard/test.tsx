@@ -44,8 +44,24 @@ describe('<GameCard />', () => {
   });
 
   // Deve renderizar o preço
-  it('should render full price ', () => {
+  it('should render normal price  ', () => {
     renderWithTheme(<GameCard {...props} />);
-    screen.getByRole('heading', { name: props.price });
+
+    const price = screen.getByText(props.price);
+    expect(price).not.toHaveStyle({
+      textDecoration: 'line-trough',
+    });
+
+    expect(price).toHaveStyle({
+      backgroundColor: '#3CD3C1',
+    });
+  });
+
+  it('should render promotionPrice if props when promotional', () => {
+    renderWithTheme(<GameCard promotionalPrice="R$ 200,00" {...props} />);
+    const price = screen.getByText(props.price);
+    expect(price).toBeInTheDocument();
+    expect(price).toHaveStyleRule('text-decoration', 'line-through');
+    expect(price).toHaveStyleRule('color', '#8F8F8F');
   });
 });

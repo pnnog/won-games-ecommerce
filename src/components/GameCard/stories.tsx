@@ -28,3 +28,9 @@ export const Default: Story<GameCardProps> = (args) => (
     <GameCard {...args} />
   </div>
 );
+
+export const IsPromotional: Story<GameCardProps> = (args) => (
+  <div style={{ maxWidth: '102rem' }}>
+    <GameCard promotionalPrice="R$ 150,00" {...args} />
+  </div>
+);
