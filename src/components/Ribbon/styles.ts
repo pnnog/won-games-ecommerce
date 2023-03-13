@@ -1,6 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 import { RibbonProps, RibbonColors } from '.';
 import { darken } from 'polished';
+import media from 'styled-media-query';
 
 const WrapperModifiers = {
   color: (theme: DefaultTheme, color: RibbonColors) => css`
@@ -73,5 +74,13 @@ export const Wrapper = styled.div<RibbonProps>`
     }
     ${!!color && WrapperModifiers.color(theme, color)}
     ${!!size && WrapperModifiers[size](theme)}
+
+    ${media.lessThan('medium')`
+      right:0;
+      ::before{
+        display:none; 
+    
+      }
+    `}
   `}
 `;

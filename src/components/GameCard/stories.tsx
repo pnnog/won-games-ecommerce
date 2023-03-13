@@ -12,6 +12,15 @@ export default {
     price: 'R$ 299,00',
   },
 
+  argTypes: {
+    onFav: {
+      action: 'clicked',
+    },
+    ribbon: {
+      type: 'string',
+    },
+  },
+
   parameters: {
     viewport: {
       defaultViewport: 'mobile1',
@@ -31,6 +40,28 @@ export const Default: Story<GameCardProps> = (args) => (
 
 export const IsPromotional: Story<GameCardProps> = (args) => (
   <div style={{ maxWidth: '102rem' }}>
-    <GameCard promotionalPrice="R$ 150,00" {...args} />
+    <GameCard {...args} />
   </div>
 );
+
+IsPromotional.args = {
+  promotionalPrice: 'R$ 150,00',
+};
+
+export const IsFavorite: Story<GameCardProps> = (args) => (
+  <div style={{ maxWidth: '102rem' }}>
+    <GameCard favorite {...args} />
+  </div>
+);
+
+export const WithRibbon: Story<GameCardProps> = (args) => (
+  <div style={{ maxWidth: '110rem' }}>
+    <GameCard {...args} />
+  </div>
+);
+
+WithRibbon.args = {
+  ribbon: '20% OFF',
+  ribbonColor: 'secondary',
+  ribbonSize: 'small',
+};

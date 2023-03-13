@@ -7,42 +7,40 @@ export const Wrapper = styled.article`
     flex-direction: column;
     background-color: ${theme.colors.white};
     height: 100%;
-    width: 100%;
+    width: 30rem;
   `}
 `;
 
 export const ImageBox = styled.div`
-  ${({ theme }) => css`
-    min-height: 14rem;
+  min-height: 14rem;
+  width: 100%;
+
+  background: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+
+  background-size: 80rem 14rem;
+  animation: placeHolderShimmer 1s linear infinite forwards;
+
+  img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-    background: #f6f7f8;
-    background-image: linear-gradient(
-      to right,
-      #f6f7f8 0%,
-      #edeef1 20%,
-      #f6f7f8 40%,
-      #f6f7f8 100%
-    );
-
-    background-size: 80rem 14rem;
-    animation: placeHolderShimmer 1s linear infinite forwards;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: -40rem 0;
     }
-
-    @keyframes placeHolderShimmer {
-      0% {
-        background-position: -40rem 0;
-      }
-      100% {
-        background-position: 40rem 0;
-      }
+    100% {
+      background-position: 40rem 0;
     }
-  `}
+  }
 `;
 
 export const Content = styled.div`
