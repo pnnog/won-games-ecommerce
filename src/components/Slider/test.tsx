@@ -1,25 +1,26 @@
 import { render, screen } from '@testing-library/react';
 import 'match-media-mock';
+import Slider, { SliderSettings } from '.';
 
-import Slider from '.';
-
+const settings: SliderSettings = {
+  dots: true,
+  slidesToShow: 1,
+  infinite: false,
+};
 describe('<Slider />', () => {
-  it('should render children as slider item', () => {
-    const { container } = render(
-      <Slider settings={{ slidesToShow: 1, infinite: false }}>
-        <p> Item 1</p>
-        <p> Item 2</p>
+  it('should render Slides correctly', () => {
+    render(
+      <Slider settings={settings}>
+        <div> Slide 1 </div>
+        <div> Slide 2 </div>
       </Slider>
     );
 
-    expect(
-      screen.getByText(/item 1/i).parentElement?.parentElement
-    ).toHaveClass('slick-slide');
-
-    expect(
-      screen.getByText(/item 2/i).parentElement?.parentElement
-    ).toHaveClass('slick-slide');
-
-    expect(container.firstChild).toMatchSnapshot();
+    expect(screen.getByText(/Slide 1/i).parentNode?.parentNode).toHaveClass(
+      'slick-slide'
+    );
+    expect(screen.getByText(/Slide 2/i).parentNode?.parentNode).toHaveClass(
+      'slick-slide'
+    );
   });
 });

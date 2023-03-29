@@ -43,7 +43,7 @@ export const WithRibbon: Story<BannerProps> = (args) => (
   <div
     style={{
       margin: '0 auto',
-      maxWidth: '109rem',
+      maxWidth: '80rem',
     }}
   >
     <Banner ribbon="Ribbon Text Here" {...args} />

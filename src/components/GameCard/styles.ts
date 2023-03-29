@@ -7,12 +7,12 @@ export const Wrapper = styled.article`
     flex-direction: column;
     background-color: ${theme.colors.white};
     height: 100%;
-    width: 30rem;
+    width: 100%;
   `}
 `;
 
 export const ImageBox = styled.div`
-  min-height: 14rem;
+  height: 14rem;
   width: 100%;
 
   background: #f6f7f8;

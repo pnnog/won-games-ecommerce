@@ -1,6 +1,6 @@
-import Button from '../Button';
+import Button from 'components/Button';
 import * as S from './styles';
-import Ribbon, { RibbonColors, RibbonSizes } from '../Ribbon';
+import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon';
 
 export type BannerProps = {
   img: string;

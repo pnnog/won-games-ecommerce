@@ -39,7 +39,7 @@ export const Caption = styled.div`
       padding:  ${theme.spacings.large};
       position: absolute;
       left: 0;
-      bottom: 0;     
+      bottom: 0;
     `}
   `}
 `;
