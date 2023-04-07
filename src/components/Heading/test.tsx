@@ -2,6 +2,7 @@ import { screen } from '@testing-library/react';
 import { renderWithTheme } from '../../utils/tests/helpers';
 
 import Heading from '.';
+import theme from 'styles/theme';
 
 describe('<Heading />', () => {
   it('should render white heading by default ', () => {
@@ -89,18 +90,18 @@ describe('<Heading />', () => {
   it('should render heading with medium font size when props is no passed', () => {
     renderWithTheme(<Heading> Font size test </Heading>);
     const element = screen.getByRole('heading', { name: /font size test/i });
-    expect(element).toHaveStyleRule('font-size', '1.6rem');
+    expect(element).toHaveStyleRule('font-size', theme.font.sizes.xlarge);
   });
 
   it('should render heading with medium font size when props is medium', () => {
     renderWithTheme(<Heading size="medium"> Font size test </Heading>);
     const element = screen.getByRole('heading', { name: /font size test/i });
-    expect(element).toHaveStyleRule('font-size', '1.6rem');
+    expect(element).toHaveStyleRule('font-size', theme.font.sizes.xlarge);
   });
 
   it('should render heading with small font size when size is small', () => {
     renderWithTheme(<Heading size="small"> Font size test </Heading>);
     const element = screen.getByRole('heading', { name: /font size test/i });
-    expect(element).toHaveStyleRule('font-size', '1.4rem');
+    expect(element).toHaveStyleRule('font-size', theme.font.sizes.small);
   });
 });

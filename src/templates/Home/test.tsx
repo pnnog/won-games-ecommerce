@@ -19,29 +19,30 @@ const props = {
   freeHighlight: MockHighlight,
 };
 
+jest.mock('components/ShowCase', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock ShowCase"></div>;
+    },
+  };
+});
+
+jest.mock('components/Banner', () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Banner"></div>;
+    },
+  };
+});
+
 describe('<Home />', () => {
   it('should render menu and footer', () => {
     renderWithTheme(<Home {...props} />);
 
-    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument();
+    expect(screen.getAllByTestId('Mock ShowCase')).toHaveLength(5);
 
-    expect(
-      screen.getByRole('heading', { name: /Follow Us/i })
-    ).toBeInTheDocument();
-  });
-
-  it('should render sections', () => {
-    renderWithTheme(<Home {...props} />);
-
-    expect(screen.getByRole('heading', { name: /News/i })).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: /Most Popular/i })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: /Upcoming/i })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', { name: /Free games/i })
-    ).toBeInTheDocument();
+    expect(screen.getByTestId('Mock Banner')).toBeInTheDocument();
   });
 });

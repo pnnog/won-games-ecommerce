@@ -4,7 +4,7 @@ import { BannerProps } from '.';
 import item from './mock';
 
 export default {
-  title: 'Banner',
+  title: 'Home/Banner',
   component: Banner,
   args: { ...item },
 
