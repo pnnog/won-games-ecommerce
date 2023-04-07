@@ -90,4 +90,17 @@ describe('<Button />', () => {
 
     expect(element).toBeInTheDocument();
   });
+
+  it('should render Button with minimal styles', () => {
+    renderWithTheme(<Button minimal>Inscreva-se</Button>);
+
+    const element = screen.getByRole('button', {
+      name: /Inscreva-se/i,
+    });
+
+    expect(element).toHaveStyleRule('background', 'none');
+    expect(element).toHaveStyleRule('background', 'none', {
+      modifier: ':hover',
+    });
+  });
 });
