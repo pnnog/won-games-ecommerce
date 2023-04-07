@@ -8,10 +8,11 @@ const wrapperModifiers = {
   `,
 
   medium: (theme: DefaultTheme) => css`
-    font-size: ${theme.font.sizes.medium};
+    font-size: ${theme.font.sizes.xlarge};
 
     ${media.greaterThan('medium')`
-    font-size: ${theme.font.sizes.large};
+    font-size: ${theme.font.sizes.xxlarge};
+    
     `}
   `,
 

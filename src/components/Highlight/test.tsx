@@ -2,24 +2,17 @@ import { screen } from '@testing-library/react';
 import { renderWithTheme } from '../../utils/tests/helpers';
 
 import Highlight from '.';
-
-const props = {
-  title: "Red Dead it's back",
-  subtitle: "Come see John's new adventures",
-  backgroundImage: 'img/red-dead.png',
-  buttonLabel: 'Buy Now',
-  buttonLink: '/redded-2',
-};
+import item from './mock';
 
 describe('<Highlight />', () => {
   it('should render Highlight with title, subtitle and button ', () => {
-    renderWithTheme(<Highlight {...props} />);
+    renderWithTheme(<Highlight {...item} />);
 
-    const title = screen.getByRole('heading', { name: /Red Dead it's back/i });
+    const title = screen.getByRole('heading', { name: item.title });
     expect(title).toBeInTheDocument();
 
     const subtitle = screen.getByRole('heading', {
-      name: /Come see John's new adventures/i,
+      name: item.subtitle,
     });
     expect(subtitle).toBeInTheDocument();
 
@@ -28,22 +21,22 @@ describe('<Highlight />', () => {
   });
 
   it('should render Highlight with background image ', () => {
-    const { container } = renderWithTheme(<Highlight {...props} />);
+    const { container } = renderWithTheme(<Highlight {...item} />);
 
     expect(container.firstElementChild).toHaveStyle({
-      backgroundImage: `url(${props.backgroundImage})`,
+      backgroundImage: `url(${item.backgroundImage})`,
     });
   });
 
   it('should render Highlight with float image ', () => {
-    renderWithTheme(<Highlight {...props} floatImage="/float/img" />);
+    renderWithTheme(<Highlight {...item} floatImage="/float/img" />);
 
-    const floatImage = screen.getByRole('img', { name: props.title });
+    const floatImage = screen.getByRole('img', { name: item.title });
     expect(floatImage).toHaveAttribute('src', '/float/img');
   });
 
   it('should render align right by Default', () => {
-    const { container } = renderWithTheme(<Highlight {...props} />);
+    const { container } = renderWithTheme(<Highlight {...item} />);
     const wrapper = container.firstElementChild;
     expect(wrapper).toHaveStyle({
       'grid-template-areas': "'floatImage content'",
@@ -52,7 +45,7 @@ describe('<Highlight />', () => {
 
   it('should render text align to left', () => {
     const { container } = renderWithTheme(
-      <Highlight {...props} alignment="left" />
+      <Highlight {...item} alignment="left" />
     );
     const wrapper = container.firstElementChild;
 

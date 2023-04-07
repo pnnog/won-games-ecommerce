@@ -1,19 +1,12 @@
 import { screen } from '@testing-library/react';
 import { renderWithTheme } from '../../utils/tests/helpers';
+import item from './mock';
 
 import Banner from '.';
 
-const props = {
-  img: 'https://source.unsplash.com/user/willianjusten/1042x580',
-  title: 'Defy death',
-  subtitle: '<p>Play the new <strong>CrashLands</strong> season',
-  buttonLabel: 'Buy Now',
-  buttonLink: '/games/defy-death',
-};
-
 describe('<Banner />', () => {
   it('should render correctly', () => {
-    const { container } = renderWithTheme(<Banner {...props} />);
+    const { container } = renderWithTheme(<Banner {...item} />);
     //img
     expect(
       screen.getByRole('img', { name: /Defy death/i })
@@ -38,7 +31,7 @@ describe('<Banner />', () => {
   it('should render banner with ribbon', () => {
     renderWithTheme(
       <Banner
-        {...props}
+        {...item}
         ribbon="20% OFF"
         ribbonSize="small"
         ribbonColor="primary"

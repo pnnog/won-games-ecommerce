@@ -8,6 +8,7 @@
     "start": "next start",
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
     "lint": "next lint --max-warnings=0",
+    "typecheck": "tsc --project tsconfig.json --noEmit", 
     "test": "jest",
     "test:watch": "yarn test --watch",
     "storybook": "start-storybook -p 6006",

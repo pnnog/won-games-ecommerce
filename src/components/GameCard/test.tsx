@@ -3,51 +3,46 @@ import { renderWithTheme } from '../../utils/tests/helpers';
 
 import GameCard from '.';
 
-const props = {
-  img: '/game/image',
-  title: 'Título do jogo',
-  developer: 'Rockstar Games',
-  price: '299',
-};
+import item from './mock';
 
 describe('<GameCard />', () => {
   // Deve renderizar a imagem
   it('should render card image', () => {
-    renderWithTheme(<GameCard {...props} />);
-    expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
+    renderWithTheme(<GameCard {...item} />);
+    expect(screen.getByRole('img', { name: item.title })).toHaveAttribute(
       'src',
-      props.img
+      item.img
     );
   });
 
   //Deve renderizar o título
   it('should render title', () => {
-    renderWithTheme(<GameCard {...props} />);
+    renderWithTheme(<GameCard {...item} />);
     expect(
-      screen.getByRole('heading', { name: props.title })
+      screen.getByRole('heading', { name: item.title })
     ).toBeInTheDocument();
   });
 
   //Deve renderizar a desenvolvedora
 
   it('should render developer', () => {
-    renderWithTheme(<GameCard {...props} />);
+    renderWithTheme(<GameCard {...item} />);
     expect(
-      screen.getByRole('heading', { name: props.developer })
+      screen.getByRole('heading', { name: item.developer })
     ).toBeInTheDocument();
   });
 
   // Deve renderizar ícone de carrinho
   it('should render icon favorite', () => {
-    renderWithTheme(<GameCard {...props} />);
+    renderWithTheme(<GameCard {...item} />);
     expect(screen.getByLabelText(/Add to Wishlist/i)).toBeInTheDocument();
   });
 
   // Deve renderizar o preço
   it('should render normal price  ', () => {
-    renderWithTheme(<GameCard {...props} />);
+    renderWithTheme(<GameCard {...item} />);
 
-    const price = screen.getByText(props.price);
+    const price = screen.getByText(item.price);
     expect(price).not.toHaveStyle({
       textDecoration: 'line-trough',
     });
@@ -57,9 +52,9 @@ describe('<GameCard />', () => {
     });
   });
 
-  it('should render promotionPrice if props when promotional', () => {
-    renderWithTheme(<GameCard promotionalPrice="R$ 200,00" {...props} />);
-    const price = screen.getByText(props.price);
+  it('should render promotionPrice if item when promotional', () => {
+    renderWithTheme(<GameCard promotionalPrice="R$ 200,00" {...item} />);
+    const price = screen.getByText(item.price);
 
     //O preço antigo deve estar no documento
     expect(price).toBeInTheDocument();
@@ -72,7 +67,7 @@ describe('<GameCard />', () => {
   });
 
   it('should render a filled Favorite icon when favorite is true', () => {
-    renderWithTheme(<GameCard {...props} favorite />);
+    renderWithTheme(<GameCard {...item} favorite />);
     const icon = screen.getByLabelText('Remove from Wishlist');
     expect(icon).toBeInTheDocument();
   });
@@ -80,7 +75,7 @@ describe('<GameCard />', () => {
   it('should call onFav method when favorite is clicked', () => {
     const onFav = jest.fn();
 
-    renderWithTheme(<GameCard {...props} favorite onFav={onFav} />);
+    renderWithTheme(<GameCard {...item} favorite onFav={onFav} />);
 
     const fav = screen.getAllByRole('button')[0];
     fireEvent.click(fav);
@@ -91,7 +86,7 @@ describe('<GameCard />', () => {
   it('should render ribbon', () => {
     renderWithTheme(
       <GameCard
-        {...props}
+        {...item}
         ribbon="20% OFF"
         ribbonColor="secondary"
         ribbonSize="small"

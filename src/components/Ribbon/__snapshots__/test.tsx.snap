@@ -43,6 +43,16 @@ exports[`<Ribbon /> should render with extra large size 1`] = `
   border-right-width: 3rem;
 }
 
+@media (max-width:768px) {
+  .c0 {
+    right: 0;
+  }
+
+  .c0::before {
+    display: none;
+  }
+}
+
 <div>
    
   <div

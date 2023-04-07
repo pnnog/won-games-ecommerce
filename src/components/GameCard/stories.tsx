@@ -1,16 +1,12 @@
 import { Meta, Story } from '@storybook/react';
 
 import GameCard, { GameCardProps } from '.';
+import item from './mock';
 
 export default {
   title: 'GameCard',
   component: GameCard,
-  args: {
-    img: 'https://source.unsplash.com/user/willianjusten/300x140',
-    title: 'Título do jogo',
-    developer: 'Rockstar Games',
-    price: 'R$ 299,00',
-  },
+  args: { ...item },
 
   argTypes: {
     onFav: {

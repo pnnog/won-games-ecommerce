@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
-  src: url('/fonts/poppins-v20-latin-600.woff2') format('woff2'),
+  src: url('/fonts/poppins-v20-latin-600.woff2') format('woff2');
 }
 
 
@@ -33,8 +33,14 @@ const GlobalStyles = createGlobalStyle`
   padding:0;
   box-sizing:border-box;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale
+  -moz-osx-font-smoothing: grayscale;
+
+  &::before, &::after{
+    box-sizing: inherit;
+  }
 }
+
+
 
 ${({ theme }) => css`
   html {
@@ -44,6 +50,7 @@ ${({ theme }) => css`
   body {
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
+    background-color: ${theme.colors.mainBg};
   }
 `}
 

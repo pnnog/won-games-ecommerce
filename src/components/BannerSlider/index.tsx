@@ -4,7 +4,7 @@ import * as S from './styles';
 
 const settings: SliderSettings = {
   dots: true,
-  arrows: true,
+  arrows: false,
   vertical: true,
   verticalSwiping: true,
   infinite: false,

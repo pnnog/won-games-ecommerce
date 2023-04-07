@@ -1,20 +1,29 @@
-import Head from 'next/head';
-import Main from 'components/Main';
+import Home, { HomeTemplateProps } from 'templates/Home';
+import MockBanners from 'components/BannerSlider/mock';
+import MockGames from 'components/GameCardSlider/mock';
+import MockHighLight from 'components/Highlight/mock';
 
-type Props = {
-  title: string;
-};
-
-export default function Home({ title = 'Boilerplate' }: Props) {
+export default function Index(props: HomeTemplateProps) {
+  /* Recebendo valores das props e passando para as página */
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content="Cabeçalho da página Home" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Main />
+      <Home {...props} />
     </>
   );
+}
+
+export function getServerSideProps() {
+  return {
+    /* Passando valores para as props e enviando para a página*/
+    props: {
+      banners: MockBanners,
+      newGames: MockGames,
+      mostPopularGames: MockGames,
+      mostPopularHighLight: MockHighLight,
+      upComingGames: MockGames,
+      upComingHighlight: MockHighLight,
+      freeGames: MockGames,
+      freeHighlight: MockHighLight,
+    },
+  };
 }

@@ -26,7 +26,6 @@ export const Wrapper = styled.section`
     display: block;
     overflow: hidden;
 
-    margin: 0;
     padding: 0;
   }
   .slick-list:focus {
