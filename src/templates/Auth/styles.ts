@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 import * as HeadingStyles from 'components/Heading/styles';
 import * as LogoStyles from 'components/Logo/styles';
-import Logo from 'components/Logo';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -59,6 +58,11 @@ export const BannerContent = styled.div`
     z-index: ${theme.layers.base};
 
     color: ${theme.colors.white};
+
+    a {
+      width: fit-content;
+      height: fit-content;
+    }
   `}
 `;
 

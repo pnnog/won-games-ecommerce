@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Logo from '../Logo/index';
 import * as S from './styles';
 import MediaMatch from '../MediaMatch/index';
+import Link from 'next/link';
 
 export type MenuProps = {
   username?: string;
@@ -55,7 +56,9 @@ const Menu = ({ username }: MenuProps) => {
         {!username && (
           <>
             <MediaMatch greaterThan="medium">
-              <Button>Sign in</Button>
+              <Link href="/sign-in" legacyBehavior passHref>
+                <Button as="a">Sign in</Button>
+              </Link>
             </MediaMatch>
           </>
         )}
@@ -78,13 +81,16 @@ const Menu = ({ username }: MenuProps) => {
         {!username && (
           <>
             <S.RegisterBox>
-              <Button fullWidth size="large">
-                Log in now
-              </Button>
+              <Link href="/sign-in" legacyBehavior passHref>
+                <Button as="a" fullWidth size="large">
+                  Sign in
+                </Button>
+              </Link>
+
               <span> or </span>
-              <S.CreateAccount href="#" title="Sign Up">
-                Sign up
-              </S.CreateAccount>
+              <Link href="/sign-up" legacyBehavior passHref>
+                <S.CreateAccount title="Sign Up">Sign up</S.CreateAccount>
+              </Link>
             </S.RegisterBox>
           </>
         )}
