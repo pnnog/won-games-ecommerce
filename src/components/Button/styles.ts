@@ -2,7 +2,7 @@ import styled, { DefaultTheme, css } from 'styled-components';
 import { ButtonProps } from '.';
 import { darken } from 'polished';
 
-type WrapperProps = { hasIcon: boolean } & Pick<
+export type WrapperProps = { hasIcon: boolean } & Pick<
   ButtonProps,
   'size' | 'fullWidth' | 'minimal'
 >;
@@ -52,6 +52,7 @@ export const Wrapper = styled.button<WrapperProps>`
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
     color: ${theme.colors.white};

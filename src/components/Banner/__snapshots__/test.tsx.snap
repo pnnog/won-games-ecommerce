@@ -14,6 +14,7 @@ exports[`<Banner /> should render correctly 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  cursor: pointer;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
   -webkit-text-decoration: none;

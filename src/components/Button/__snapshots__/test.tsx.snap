@@ -20,6 +20,7 @@ exports[`<Button /> should render a icon version 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  cursor: pointer;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
   -webkit-text-decoration: none;
@@ -86,6 +87,7 @@ exports[`<Button /> should render full width version 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  cursor: pointer;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
   -webkit-text-decoration: none;
@@ -132,6 +134,7 @@ exports[`<Button /> should render large button if size large 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  cursor: pointer;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
   -webkit-text-decoration: none;
@@ -177,6 +180,7 @@ exports[`<Button /> should render small button if size small 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  cursor: pointer;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
   -webkit-text-decoration: none;
@@ -221,6 +225,7 @@ exports[`<Button /> should render the medium size byDefault 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  cursor: pointer;
   background: linear-gradient(180deg,#ff5f5f 0%,#f062c0 50%);
   color: #FAFAFA;
   -webkit-text-decoration: none;

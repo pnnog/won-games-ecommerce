@@ -36,7 +36,7 @@ describe('<Menu />', () => {
   it('should render register box when is logged out', () => {
     //se não estiver logado, register box deve estar visivel
     renderWithTheme(<Menu />);
-    expect(screen.getByText(/Log in Now/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Sign in/i)[0]).toBeInTheDocument();
     expect(screen.getByText(/Sign Up/i)).toBeInTheDocument();
   });
 
@@ -56,7 +56,7 @@ describe('<Menu />', () => {
 
   it('should hide register box when is logged out ', () => {
     renderWithTheme(<Menu username="ana" />);
-    expect(screen.queryByText(/Log in now/i)).not.toBeInTheDocument();
-    expect(screen.queryByText(/Sign up/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Sign in/i)).toBeNull();
+    expect(screen.queryByText(/Sign up/i)).toBeNull();
   });
 });
