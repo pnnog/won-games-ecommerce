@@ -104,4 +104,14 @@ describe('<Heading />', () => {
     const element = screen.getByRole('heading', { name: /font size test/i });
     expect(element).toHaveStyleRule('font-size', theme.font.sizes.small);
   });
+
+  it('should render heading with huge font size when size is huge', () => {
+    const { container } = renderWithTheme(
+      <Heading size="huge"> Font size test </Heading>
+    );
+    const element = screen.getByRole('heading', { name: /font size test/i });
+    expect(element).toHaveStyleRule('font-size', theme.font.sizes.huge);
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

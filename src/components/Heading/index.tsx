@@ -5,7 +5,7 @@ export type LineColorProps = 'primary' | 'secondary';
 export type HeadingProps = {
   children: React.ReactNode;
   color?: 'white' | 'black';
-  size?: 'small' | 'medium';
+  size?: 'small' | 'medium' | 'huge';
   leftLine?: boolean;
   bottomLine?: boolean;
   lineColor?: LineColorProps;
