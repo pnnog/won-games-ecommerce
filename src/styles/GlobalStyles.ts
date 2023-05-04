@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 
-* {
+*{
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -41,7 +41,6 @@ const GlobalStyles = createGlobalStyle`
 }
 
 
-
 ${({ theme }) => css`
   html {
     font-size: 62.5%;
@@ -50,6 +49,7 @@ ${({ theme }) => css`
   body {
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
+    font-weight: ${theme.font.light}
     background-color: ${theme.colors.mainBg};
   }
 `}
