@@ -5,7 +5,7 @@ type SLickButtonFixProps = {
   children: React.ReactNode;
 } & CustomArrowProps;
 
-function SlickButtonFix({
+export function SlickButtonFix({
   currentSlide,
   slideCount,
   children,
@@ -14,4 +14,4 @@ function SlickButtonFix({
   return <span {...props}>{children}</span>;
 }
 
-export default SlickButtonFix;
+SlickButtonFix;

@@ -3,7 +3,7 @@ import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined';
 import GameCard, { GameCardProps } from 'components/GameCard';
 import Slider, { SliderSettings } from 'components/Slider';
 import * as S from './styles';
-import SlickButtonFix from 'utils/fix-slick-types';
+import { SlickButtonFix } from 'utils/fix-slick-types';
 
 const settings: SliderSettings = {
   slidesToShow: 4,
